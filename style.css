@@ -1,0 +1,162 @@
+/*body {
+    background-image: url(https://cdn.gamedevmarket.net/wp-content/uploads/20191203172053/54c515ccd7c8562d4c070fc49b6dc5a3-1400x936.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#dog {
+    height: 100px
+}
+
+#cat {
+    height: 100px
+}*/
+* {
+    box-sizing:border-box;
+  }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(180deg, #64BEFF -50%, #6e96ff 69.71%, #2a65ff 150%);
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-container { 
+    position: relative;
+    width: 240px;
+    height: 208px;
+    background: url(/images/map.png) no-repeat no-repeat;
+    transform: scale(3);
+    image-rendering: pixelated;
+    z-index: 0
+}
+
+.player-info {
+    position: absolute;
+    top: 0;
+    left:0;
+    padding: 1em;
+    display: flex;
+    gap: 0.5em;
+    align-items: flex-end
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+button {
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 18px;
+    height: 44px;
+    border-radius: 4px;
+    outline: 0;
+}
+
+input[type="text"] {
+    outline: 0;
+    padding-left: 0.5em;
+    border: 3px solid #222034;
+    width: 150px;
+    text-transform: uppercase;
+}
+input[type="text"]:focus {
+    border-color: #f000ff;
+}
+
+button {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background: #59ff5a;
+    border: 0;
+    border-bottom: 2px solid #1e830b;
+    cursor: pointer;
+}
+button:active {
+    position: relative;
+    top: 1px;
+}
+
+/* Personagens */
+.grid-cell {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+}
+.Character {
+    transition: transform 0.4s;
+}
+.Character.you {
+    z-index: 1;
+}
+.Character.you .Character_you-arrow {
+    display: block;
+}
+.Character_you-arrow {
+    display: none;
+    position: absolute;
+    top: -16px;
+    left: 12px;
+    width: 7px;
+    height: 5px;
+    background: url(/images/arrow.png) no-repeat no-repeat;
+}
+.Character_sprite {
+    overflow: hidden;
+    top: -6px;
+    background: url(/images/3animals.png);
+}
+.Character[data-direction="right"] .Character_sprite {
+    background-position-x: 32px;
+}
+.Character[data-animal="dog"] .Character_sprite {
+    background-position-y: 0px;
+}
+.Character[data-animal="cat"] .Character_sprite {
+    background-position-y: -32px;
+}
+.Character[data-animal="chicken"] .Character_sprite {
+    background-position-y: -64px;
+}
+.Character[data-animal="sheep"] .Character_sprite {
+    background-position-y: -96px;
+}
+.Character[data-animal="cow"] .Character_sprite {
+    background-position-y: -128px;
+}
+.Character[data-animal="horse"] .Character_sprite {
+    background-position-y: -160px;
+}
+.Character[data-animal="wolf"] .Character_sprite {
+    background-position-y: -192px;
+}
+.Character_shadow {
+    background: url(/images/shadow.png) no-repeat no-repeat
+}
+
+.Character_name-container {
+    position: absolute;
+    top: -10px;
+    font-size: 5px;
+    font-family: system-ui;
+    padding: 1px 2px 1px;
+    border-radius: 3px;
+    background: #333;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
